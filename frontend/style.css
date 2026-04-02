@@ -1,0 +1,315 @@
+:root {
+  --bg-top: #f3efe5;
+  --bg-bottom: #dfe8dd;
+  --surface: rgba(255, 252, 246, 0.9);
+  --surface-strong: #fffdf8;
+  --border: rgba(84, 96, 79, 0.12);
+  --border-strong: rgba(84, 96, 79, 0.22);
+  --text-main: #243126;
+  --text-soft: #5f6f61;
+  --text-muted: #7b897d;
+  --accent: #476c52;
+  --accent-strong: #375640;
+  --danger: #b2554b;
+  --danger-soft: rgba(178, 85, 75, 0.12);
+  --shadow: 0 24px 60px rgba(45, 63, 47, 0.12);
+  --radius-xl: 28px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --transition: 180ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.72), transparent 28%),
+    linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.app-card {
+  width: min(100%, 760px);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.eyebrow {
+  margin: 0 0 0.9rem;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.tagline {
+  margin: 0.55rem 0 0;
+  color: var(--text-soft);
+  max-width: 28rem;
+}
+
+.task-counter {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  color: var(--accent-strong);
+  background: rgba(71, 108, 82, 0.1);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.task-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.85rem;
+}
+
+.task-form input {
+  width: 100%;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-strong);
+  color: var(--text-main);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.task-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.task-form input:focus {
+  outline: none;
+  border-color: rgba(71, 108, 82, 0.42);
+  box-shadow: 0 0 0 4px rgba(71, 108, 82, 0.12);
+}
+
+.task-form input.is-invalid {
+  border-color: rgba(178, 85, 75, 0.52);
+  box-shadow: 0 0 0 4px rgba(178, 85, 75, 0.12);
+}
+
+.task-form button {
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  background: var(--accent);
+  color: #f6f8f4;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+.task-form button:hover,
+.task-form button:focus-visible {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(55, 86, 64, 0.18);
+}
+
+.validation-message {
+  min-height: 1.3rem;
+  margin: 0.75rem 0 0;
+  color: var(--danger);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.list-panel {
+  margin-top: 1.5rem;
+  padding: 1.15rem;
+  border-radius: calc(var(--radius-xl) - 6px);
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid rgba(84, 96, 79, 0.08);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.list-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.list-caption {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 1.2rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-soft);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-strong);
+  animation: fade-slide-in 220ms ease;
+  transition: border-color var(--transition), transform var(--transition), background-color var(--transition);
+}
+
+.task-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(71, 108, 82, 0.24);
+}
+
+.task-item.completed {
+  background: rgba(244, 246, 241, 0.96);
+  border-color: rgba(84, 96, 79, 0.08);
+}
+
+.task-toggle {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.task-text {
+  margin: 0;
+  overflow-wrap: anywhere;
+  transition: color var(--transition), opacity var(--transition);
+}
+
+.task-item.completed .task-text {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  opacity: 0.78;
+}
+
+.delete-button {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  background: transparent;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: color var(--transition), background-color var(--transition), border-color var(--transition);
+}
+
+.delete-button:hover,
+.delete-button:focus-visible {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-color: rgba(178, 85, 75, 0.18);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-card {
+    padding: 1.1rem;
+  }
+
+  .hero,
+  .list-header,
+  .task-form {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .task-form button {
+    width: 100%;
+  }
+
+  .task-item {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .delete-button {
+    grid-column: 2;
+    justify-self: end;
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClearList</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="app-card" aria-labelledby="app-title">
+      <p class="eyebrow">Simple proof of concept</p>
+      <header class="hero">
+        <div>
+          <h1 id="app-title">ClearList</h1>
+          <p class="tagline">A calm place to capture what matters next.</p>
+        </div>
+        <p id="task-counter" class="task-counter" aria-live="polite">0 tasks left</p>
+      </header>
+
+      <form id="task-form" class="task-form" novalidate>
+        <label class="sr-only" for="task-input">Add a task</label>
+        <input
+          id="task-input"
+          name="task"
+          type="text"
+          maxlength="300"
+          placeholder="Add a task you want to finish"
+          autocomplete="off"
+        >
+        <button type="submit">Add task</button>
+      </form>
+
+      <p id="validation-message" class="validation-message" role="alert" hidden>
+        Enter a task before adding it.
+      </p>
+
+      <section class="list-panel" aria-labelledby="list-heading">
+        <div class="list-header">
+          <h2 id="list-heading">Your list</h2>
+          <p class="list-caption">Active tasks stay on top. Completed tasks move below.</p>
+        </div>
+
+        <p id="empty-state" class="empty-state">No tasks yet. Add your first one above.</p>
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
